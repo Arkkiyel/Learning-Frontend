@@ -1,0 +1,72 @@
+/* Reset dasar */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; background-color: #1a1a2e; color: #e0e0e0; }
+
+/* 1. HEADER: Selalu nempel di atas (Sticky/Fixed) */
+.app-header {
+    position: sticky; /* Atau fixed */
+    top: 0;
+    height: 60px;
+    background-color: #4a148c; /* Ungu Pwndbg */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100; /* Agar di atas segalanya */
+    border-bottom: 1px solid #ffffff20;
+}
+
+/* 2. LAYOUT WRAPPER: Mengatur 3 Kolom */
+.layout-wrapper {
+    display: grid;
+    /* Kolom 1 (Kiri): 250px (Tetap)
+       Kolom 2 (Tengah): 1fr (Sisa ruang diambil semua)
+       Kolom 3 (Kanan): 200px (Tetap)
+    */
+    grid-template-columns: 250px 1fr 200px; 
+    
+    /* Tinggi minimal setinggi layar dikurangi header */
+    min-height: calc(100vh - 60px); 
+}
+
+/* GAYA SIDEBAR (Kiri & Kanan) */
+.sidebar-left, .sidebar-right {
+    position: sticky;
+    top: 60px; /* Nempel setelah header */
+    height: calc(100vh - 60px); /* Tinggi layar penuh minus header */
+    overflow-y: auto; /* Bisa discroll kalau menu kepanjangan */
+    padding: 20px;
+}
+
+.sidebar-left {
+    border-right: 1px solid #ffffff10;
+}
+
+.sidebar-right {
+    font-size: 0.9em;
+    border-left: 1px solid #ffffff10;
+}
+
+/* GAYA KONTEN (Tengah) */
+.content-area {
+    padding: 40px;
+    /* Agar tulisan tidak terlalu lebar sampai susah dibaca */
+    max-width: 800px; 
+    margin: 0 auto; /* Tengah secara horizontal di dalam kolomnya */
+}
+
+@media (max-width: 768px) {
+    .layout-wrapper {
+        /* Ubah jadi 1 kolom saja */
+        grid-template-columns: 1fr; 
+    }
+
+    /* Sembunyikan sidebar kanan di HP */
+    .sidebar-right {
+        display: none; 
+    }
+
+    /* Sidebar kiri biasanya disembunyikan dan dibuka pakai tombol hamburger menu */
+    .sidebar-left {
+        display: none; /* Nanti dimunculkan pakai Javascript */
+    }
+}

@@ -1,0 +1,53 @@
+body {
+    background-color: #1a1a2e; /* Latar belakang gelap agar efek terlihat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+.btn {
+    position: relative;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    overflow: hidden; 
+    background-color: #1659aa; 
+
+    /* background-image: radial-gradient(
+        circle 100px at var(--x, 50%) var(--y, 50%), 
+        rgba(255, 255, 255, 0.3) 0%, /* Warna cahaya di tengah (putih transparan) 
+        
+    ); */
+    transition: background-image 0s; 
+}
+
+
+.btn span {
+    position: relative;
+    z-index: 2;
+    pointer-events: none; 
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.text-light {
+    background-image: radial-gradient(
+        circle 60px at var(--x, 50%) var(--y, 50%), 
+        #f6bf5f 0%,   
+        #000000 100%    
+    );
+    background-clip: text;
+    -webkit-background-clip: text; /* For Chrome/Safari/Edge */
+    color: transparent; 
+    transition: background-image 0s;
+}
